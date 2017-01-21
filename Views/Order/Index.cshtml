@@ -1,0 +1,124 @@
+﻿@model PagedList.IPagedList<IEP_Projekat.Models.order>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders</h2>
+
+<style>
+    th { text-align: center; vertical-align: middle; }
+    tr { text-align: center; vertical-align: middle; }
+</style>
+
+
+@using (Html.BeginForm("Index", "Order", FormMethod.Get))
+{
+    <p>
+        Find by status: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+
+    <tr>
+        <th>
+            @if (ViewBag.SortOrder == "Id")
+            {
+                @Html.ActionLink("Id", "Index", new { sortOrder = "Id", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("Id", "Index", new { sortOrder = "Id", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "Email")
+            {
+                @Html.ActionLink("Email", "Index", new { sortOrder = "Email", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("Email", "Index", new { sortOrder = "Email", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "tokenNumber")
+            {
+                @Html.ActionLink("Token Number", "Index", new { sortOrder = "tokenNumber", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("Token Number", "Index", new { sortOrder = "tokenNumber", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "price")
+            {
+                @Html.ActionLink("Package price", "Index", new { sortOrder = "price", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("Package price", "Index", new { sortOrder = "price", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "status")
+            {
+                @Html.ActionLink("Status", "Index", new { sortOrder = "status", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("Status", "Index", new { sortOrder = "status", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "create")
+            {
+                @Html.ActionLink("Creation time", "Index", new { sortOrder = "create", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("Creation time", "Index", new { sortOrder = "create", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDOrd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.token_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.package_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_date_time)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.IDOrd })
+            </td>
+        </tr>
+    }
+</table>
+
+<br/>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, SortType = ViewBag.SortType, SortOrder = ViewBag.SortOrder }))

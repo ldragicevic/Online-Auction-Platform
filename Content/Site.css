@@ -1,0 +1,203 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.productNameLink:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.productNameLink {
+    font-size: 20px;
+}
+
+.productNameParagraph {
+    margin-bottom: 0px;
+}
+
+.productPriceParagraph {
+    color: silver;
+    margin-bottom: 3px;
+}
+
+.productImage {
+    width: 130px;
+    height: 130px;
+    display:inline-block;
+    border: 2px solid white;
+}
+
+.productImageDiv {
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    display: inline-block;
+}
+
+.productStateParagraph {
+    margin: 0px;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: rgb(115,247,36);
+}
+
+.productStateParagraphUpcoming {
+    margin: 0px;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: royalblue;
+}
+
+.productStateParagraphSold {
+    margin: 0px;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: blueviolet;
+}
+
+.productStateParagraphExpired {
+    margin: 0px;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: rgb(255, 54, 40);
+}
+
+.bidderIncrementParagraph {
+    margin: 0px;
+}
+
+.displayLabelProduct {
+    font-size: 14px;
+    color: silver;
+}
+
+.displayLastBidderProduct {
+    font-size: 14px;
+    color: silver;
+}
+
+.incrementPrice {
+    font-size: 24px;
+    color: rgb(119,41,83);
+    margin: 3px;
+}
+
+/* ACTIVE BUTTON */
+
+.bidActiveButton {
+    color: #333333;
+    background-color:rgb(119,41,83);
+    border-color: #cccccc;
+}
+
+.bidActiveButton:hover,
+.bidActiveButtonfocus,
+.bidActiveButton:active,
+.bidActiveButton.active,
+.open .dropdown-toggle.bidActiveButton {
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
+.bidActiveButton:active,
+.bidActiveButton.active,
+.open .dropdown-toggle.bidActiveButton {
+  background-image: none;
+}
+
+#blankDivSearchSpan {
+    width: 100%;
+    height: 15px;
+    background-color: white;
+    text-align: right
+}
+
+#showHideBtn {
+    margin-top: 15px;
+    font-size: 20px;
+    color: rgb(119,41,83);
+}
+
+#menuSearchToolbar {
+    margin-top: 3px;
+    width: 100%;
+    height: 55px;
+    background-color:white;
+    display: none;
+}
+
+#buttonSubmitSearch {
+    width: 20px;
+    height: 22px;
+    padding: 0;
+    /*background-color: rgb(119,41,83);*/
+    background-color: white;
+    color: rgb(119,41,83);
+    border: 0;
+}
+
+#searchName {
+    width: 125px; display: inline-block; font-size: 12px; padding: 8px; height: 25px;
+}
+
+#searchState {
+    width: 95px; display: inline-block;font-size: 12px; padding: 8px; height: 25px;
+}
+
+#searchMin {
+    width: 75px; display: inline-block;font-size: 12px; padding: 8px; height: 25px;
+}
+
+#searchMax {
+    width: 75px; display: inline-block;font-size: 12px; padding: 8px; height: 25px;
+}
+
+#searchButton {
+    color: rgb(233,84,22); font-size: 15px;
+}
+
+#searchButton:hover {
+    cursor: pointer;
+}
+
+#searchSpanIcon {
+    font-size: 12px;
+}
+
+#alertSpanIcon {
+    font-size: 18px;
+    color: red;
+}
+
+#pageHeading {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.warningLabelOtherAuction {
+    font-size: 14px;
+    color: red;
+}

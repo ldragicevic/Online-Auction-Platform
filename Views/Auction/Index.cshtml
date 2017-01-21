@@ -1,0 +1,161 @@
+﻿@model PagedList.IPagedList<IEP_Projekat.Models.auction>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Auctions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Auctions</h2>
+
+<style>
+    th { text-align: center; vertical-align:middle; }
+    tr { text-align: center; vertical-align:middle; }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@using (Html.BeginForm("Index", "Auction", FormMethod.Get))
+{
+    <p>
+        Search by product name &nbsp; @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+
+    <tr>
+        <th>
+            picture
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "product")
+            {
+                @Html.ActionLink("product", "Index", new { sortOrder = "product", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("product", "Index", new { sortOrder = "product", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "duration")
+            {
+                @Html.ActionLink("duration", "Index", new { sortOrder = "duration", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("duration", "Index", new { sortOrder = "duration", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "price")
+            {
+                @Html.ActionLink("price", "Index", new { sortOrder = "price", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("price", "Index", new { sortOrder = "price", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "state")
+            {
+                @Html.ActionLink("state", "Index", new { sortOrder = "state", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("state", "Index", new { sortOrder = "state", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "created")
+            {
+                @Html.ActionLink("created", "Index", new { sortOrder = "created", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("created", "Index", new { sortOrder = "created", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "opened")
+            {
+                @Html.ActionLink("opened", "Index", new { sortOrder = "opened", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("opened", "Index", new { sortOrder = "opened", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th>
+            @if (ViewBag.SortOrder == "closed")
+            {
+                @Html.ActionLink("closed", "Index", new { sortOrder = "closed", SortType = ViewBag.SortType, change = "true" })
+            }
+            else
+            {
+                @Html.ActionLink("closed", "Index", new { sortOrder = "closed", SortType = ViewBag.SortType })
+            }
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @{
+                var base64 = Convert.ToBase64String(item.picture);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            }
+            <img src="@imgSrc" alt="auctionimage" style="width: 50px; height: 50px; display:inline-block" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.create_date_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.open_date_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.close_date_time)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.IDAuc }) &nbsp; &nbsp;
+            @if (item.state == "Ready")
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDAuc }) <font>&nbsp; &nbsp;</font>
+                @Html.ActionLink("Open", "Open", new { id = item.IDAuc }) <font>&nbsp; &nbsp;</font>
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDAuc })
+            }
+        </td>
+    </tr>
+    }
+
+</table>
+
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", 
+    new { page, SortType = ViewBag.SortType, SortOrder = ViewBag.SortOrder, SearchString = ViewBag.SearchString
+}))
+
+

@@ -1,0 +1,429 @@
+﻿@model PagedList.IPagedList<IEP_Projekat.Models.auction>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "IEP Auction " + @ViewBag.heading;
+}
+
+<div id="blankDivSearchSpan">
+    <span id="showHideBtn" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+</div>
+
+<!-- SHOW/HIDE MENU -->
+<div id="menuSearchToolbar">
+    <div style="float: left; display: inline-block; text-align: left;">
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            if (ViewBag.searchName != "")
+            {
+                <input type="text" id="searchName" class="form-control" name="searchName" placeholder="product name" value="@ViewBag.searchName" /> @Html.Raw("&nbsp;")
+            }
+            else
+            {
+                <input type="text" id="searchName" class="form-control" name="searchName" placeholder="product name" /> @Html.Raw("&nbsp;")
+            }
+            <span class="glyphicon glyphicon-usd" aria-hidden="true" style="font-size: 10px; color: darkgrey"></span>
+            if (ViewBag.searchMin != null)
+            {
+                <input type="number" id="searchMin" class="form-control" name="searchMin" placeholder="min" min="0" value="@ViewBag.searchMin" /> <font style="color: darkgrey">-</font>
+            }
+            else
+            {
+                <input type="number" id="searchMin" class="form-control" name="searchMin" placeholder="min" min="0" /> <font style="color: darkgrey">-</font>
+            }
+            if (ViewBag.searchMax != null)
+            {
+                <input type="number" id="searchMax" class="form-control" name="searchMax" placeholder="max" min="0" value="@ViewBag.searchMax" /> @Html.Raw("&nbsp;")
+            }
+            else
+            {
+                <input type="number" id="searchMax" class="form-control" name="searchMax" placeholder="max" min="0" /> @Html.Raw("&nbsp;")
+            }
+            <input type="hidden" name="heading" value="@ViewBag.heading" />
+            <input type="hidden" name="ViewBagHeading" value="@ViewBag.heading" />
+            <button type="submit" class="btn-warning btn" id="buttonSubmitSearch">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        }
+    </div>
+    <div style="float: right; display: inline-block; text-align: right; margin-right: 35px;">
+        @Html.ActionLink("live", "Index", "Home", new { @heading = "live" }, null) |
+        @Html.ActionLink("upcoming", "Index", "Home", new { @heading = "upcoming" }, null) |
+        @Html.ActionLink("past", "Index", "Home", new { @heading = "past" }, null) 
+    </div>
+</div>
+
+<h3 id="pageHeading">@ViewBag.heading auctions</h3>
+<input type="hidden" id="clientEmail" value="@ViewBag.Email" />
+
+<!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE -->
+<!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE -->
+<!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE -->
+<!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE -->
+<!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE --><!-- LIVE LIVE LIVE -->
+@if (ViewBag.heading == "live")
+{
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="well text-center">
+
+                        <!-- PRODUCT NAME  -->
+                        <p class="productNameParagraph">
+                            <a href="@Url.Action("Details", "Auction", new { id = item.IDAuc })" class="productNameLink">
+                                @Html.DisplayFor(model => item.product_name) <br />
+                            </a>
+                        </p>
+
+                        <!-- PRODUCT PRICE  -->
+                        <p class="productPriceParagraph">
+                            @Html.DisplayFor(modelItem => item.price)
+                        </p>
+
+                        <!-- PRODUCT PICTURE  -->
+                        <div class="productImageDiv">
+                            @{
+                                var base64 = Convert.ToBase64String(item.picture);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                            <img src="@imgSrc" alt="auctionimage" class="productImage" id="@Html.Raw("picture" + item.IDAuc)" />
+                        </div>
+
+                        <div class="caption">
+
+                            <!-- PRODUCT STATE  -->
+                            <p class="productStateParagraph">
+                                @Html.Label(item.state, new { id = "state" + item.IDAuc, @class = "productStateParagraph" })
+                            </p>
+
+                            <!-- PRODUCT DURATION  -->
+                            <p class="bidderIncrementParagraph">
+                                <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 16px;color: silver;"></span>
+                                @{
+                                    DateTime end;
+                                    if (item.close_date_time != null)
+                                    {
+                                        end = (DateTime)item.close_date_time;
+                                    }
+                                    else
+                                    {
+                                        end = DateTime.Now;
+                                    }
+                                    DateTime now = DateTime.Now;
+                                    TimeSpan diff = end.Subtract(now);
+                                }
+                                <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                                <label id="@Html.Raw("time" + item.IDAuc)" class="displayLabelProduct">
+                                    @diff.ToString(@"dd\:hh\:mm\:ss")
+                                </label>
+                            </p>
+
+                            <!-- PRODUCT LAST BIDDER  -->
+                            <p class="bidderIncrementParagraph" style="margin-bottom: 3px;">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 16px;color: silver;" id="@Html.Raw("spanLastBidder" + item.IDAuc)"></span>
+                                <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                                <label id="@Html.Raw("lastbidder" + item.IDAuc)" class="displayLabelProduct">
+                                    @Html.Raw("&nbsp; " + item.lastbidder)
+                                </label>
+                            </p>
+
+                            <!-- PRODUCT PRICE  -->
+                            <p style="font-size: 24px; color: brown; margin: 3px;">
+                                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true" style="font-size: 18px;color: rgb(115,247,75);" id="@Html.Raw("spanPrice" + item.IDAuc)"></span>
+                                @Html.Label(Convert.ToString(item.price + item.increment), new { id = "price" + item.IDAuc, @class = "incrementPrice" })
+                                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true" style="font-size: 18px;color: rgb(115,247,75);" id="@Html.Raw("spanPrice2" + item.IDAuc)"></span>
+                            </p>
+
+                            @if (ViewBag.heading == "live")
+                            {
+                                <!-- OPEN AUCTION BID AVAILABLE -->
+                                <button class="btn btn-warning btnBid" value="Bid" type="button" id="@Html.Raw("btn" + item.IDAuc)" style="background-color: rgb(115,247,75); border: 0;">
+                                    bid
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+<!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING -->
+<!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING -->
+<!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING -->
+<!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING -->
+<!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING --><!-- UPCOMING UPCOMING UPCOMING -->
+@if (ViewBag.heading == "upcoming")
+{
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="well text-center">
+
+                        <!-- PRODUCT NAME  -->
+                        <p class="productNameParagraph">
+                            <a href="@Url.Action("Details", "Auction", new { id = item.IDAuc, heading = ViewBag.heading })" class="productNameLink">
+                                @Html.DisplayFor(model => item.product_name) <br />
+                            </a>
+                        </p>
+
+                        <!-- PRODUCT PRICE  -->
+                        <p class="productPriceParagraph">
+                            @Html.DisplayFor(modelItem => item.price)
+                        </p>
+
+                        <!-- PRODUCT PICTURE  -->
+                        <div class="productImageDiv">
+                            @{
+                                var base64 = Convert.ToBase64String(item.picture);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                            <img src="@imgSrc" alt="auctionimage" class="productImage" id="@Html.Raw("picture" + item.IDAuc)" />
+                        </div>
+
+                        <div class="caption">
+
+                            <!-- PRODUCT STATE  -->
+                            <p class="productStateParagraph">
+                                @Html.Label(item.state, new { id = "state" + item.IDAuc, @class = "productStateParagraphUpcoming" })
+                            </p>
+
+                            <!-- PRODUCT DURATION  -->
+                            <p class="bidderIncrementParagraph">
+                                <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 16px;color: silver;"></span>
+                                @{
+                                    TimeSpan diff = new TimeSpan(0);
+                                }
+                                <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                                <label id="@Html.Raw("time"+item.IDAuc)" class="displayLabelProduct">
+                                    @diff.ToString(@"dd\:hh\:mm\:ss")
+                                </label>
+                            </p>
+
+                            <!-- PRODUCT LAST BIDDER  -->
+                            <p class="bidderIncrementParagraph" style="margin-bottom: 3px;">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 16px;color: silver;" id="@Html.Raw("spanLastBidder" + item.IDAuc)"></span>
+                                <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                                <label id="@Html.Raw("lastbidder"+item.IDAuc)" class="displayLabelProduct">
+                                    @Html.Raw("&nbsp; " + item.lastbidder)
+                                </label>
+                            </p>
+
+                            <!-- PRODUCT PRICE  -->
+                            <p style="font-size: 24px; color: brown; margin: 3px;">
+                                @Html.Label(Convert.ToString(item.price + item.increment), new { id = "price" + item.IDAuc, @class = "incrementPrice" })
+                            </p>
+
+                            <!-- OPEN AUCTION BID AVAILABLE -->
+                            <button class="btn btn-warning btnBid" value="Bid" type="button" disabled="disabled" id="@Html.Raw("btn" + item.IDAuc)" style="background-color: royalblue; border: 0;">
+                                soon
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+<!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST -->
+<!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST -->
+<!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST -->
+<!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST -->
+<!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST --><!-- PAST PAST PAST -->
+@if (ViewBag.heading == "past")
+{
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="well text-center">
+
+                        <!-- PRODUCT NAME  -->
+                        <p class="productNameParagraph">
+                            <a href="@Url.Action("Details", "Auction", new { id = item.IDAuc, heading = ViewBag.heading })" class="productNameLink">
+                                @Html.DisplayFor(model => item.product_name) <br />
+                            </a>
+                        </p>
+
+                        <!-- PRODUCT PRICE  -->
+                        <p class="productPriceParagraph">
+                            @Html.DisplayFor(modelItem => item.price)
+                        </p>
+
+                        <!-- PRODUCT PICTURE  -->
+                        <div class="productImageDiv">
+                            @{
+                                var base64 = Convert.ToBase64String(item.picture);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                            <img src="@imgSrc" alt="auctionimage" class="productImage" id="@Html.Raw("picture" + item.IDAuc)" />
+                        </div>
+
+                        <div class="caption">
+
+                            <!-- PRODUCT STATE  -->
+                            <p class="productStateParagraph">
+                                @if (item.state == "Expired")
+                                {
+                                    @Html.Label(item.state, new { id = "state" + item.IDAuc, @class = "productStateParagraphExpired" })
+                                }
+                                else
+                                {
+                                    @Html.Label(item.state, new { id = "state" + item.IDAuc, @class = "productStateParagraphSold" })
+                                }
+                            </p>
+
+                            <!-- PRODUCT DURATION  -->
+                            <p class="bidderIncrementParagraph">
+                                <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 16px;color: silver;"></span>
+                                @{
+                                    DateTime begin = (DateTime)item.open_date_time;
+                                    DateTime end = (DateTime)item.close_date_time;
+                                    TimeSpan diff = end.Subtract(begin);
+                                }
+                                <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                                <label id="@Html.Raw("time"+item.IDAuc)" class="displayLabelProduct">
+                                    @diff.ToString(@"dd\:hh\:mm\:ss")
+                                </label>
+                            </p>
+
+                            <!-- PRODUCT LAST BIDDER  -->
+                            <p class="bidderIncrementParagraph" style="margin-bottom: 3px;">
+                                @if (item.state == "Expired")
+                                {
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true" style="font-size: 16px;color: silver;" id="@Html.Raw("spanLastBidder" + item.IDAuc)"></span>
+                                }
+                                else
+                                {
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true" style="font-size: 16px;color: silver;" id="@Html.Raw("spanLastBidder" + item.IDAuc)"></span>
+                                }
+                                <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                                <label id="@Html.Raw("lastbidder"+item.IDAuc)" class="displayLabelProduct">
+                                    @Html.Raw("&nbsp; " + item.lastbidder)
+                                </label>
+                            </p>
+
+                            <!-- PRODUCT PRICE  -->
+                            <p style="font-size: 24px; color: brown; margin: 3px;">
+                                @Html.Label(Convert.ToString(item.price + item.increment), new { id = "price" + item.IDAuc, @class = "incrementPrice" })
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, SortType = ViewBag.SortType, searchMin = ViewBag.searchMin, searchMax = ViewBag.searchMax, searchName = ViewBag.searchName, heading = ViewBag.heading }))
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+
+        $(function () {
+
+            var my_hub = $.connection.myHub;
+
+            // Server reply on bid attempt
+            my_hub.client.clientBidsUpdate = function (IDAuction, newState, newDuration, newLastBidder, newPrice, warningNoTokens) {
+                var clientEmail = $("#" + "email" + IDAuction).val();
+                $("#" + "state" + IDAuction).text(newState);
+                $("#" + "time" + IDAuction).text(newDuration);
+                $("#" + "price" + IDAuction).text(newPrice);
+                // Unsuccessful bid
+                if (warningNoTokens == "true") {
+                    if (newLastBidder == clientEmail) {
+                        alert("Not enough tokens to place bigger bid. Please buy some tokens!");
+                    }
+                // Succesful bid
+                } else {
+                    $("#" + "lastbidder" + IDAuction).text(newLastBidder);
+                    $("#" + "spanPrice" + IDAuction).addClass("glyphicon glyphicon-arrow-up");
+                    $("#" + "spanPrice2" + IDAuction).addClass("glyphicon glyphicon-arrow-up");
+                }
+            };
+
+            // Timer Update method // each 1 second
+            my_hub.client.timerUpdate = function (IDAuction, newState, newDuration, newLastBidder, newPrice, lastTenSeconds, durationEvenOdd, end) {
+                $("#" + "state" + IDAuction).text(newState);
+                $("#" + "time" + IDAuction).text(newDuration);
+                $("#" + "lastbidder" + IDAuction).text(newLastBidder);
+                $("#" + "price" + IDAuction).text(newPrice);
+                // Disable auction on client side
+                if (newState == "Sold" || newState == "Expired") {
+                    if (newState == "Sold") {
+                        $("#" + "btn" + IDAuction).html("sold");
+                        $("#" + "btn" + IDAuction).removeClass("btn-warning btn").addClass("btn-info btn");
+                        $("#" + "btn" + IDAuction).css("background-color", "blueviolet");
+                        $("#" + "btn" + IDAuction).css("color", "white");
+                        $("#" + "state" + IDAuction).css("color", "blueviolet");
+                        $("#" + "spanLastBidder" + IDAuction).removeClass("glyphicon glyphicon-user").addClass("glyphicon glyphicon-ok");
+                        $("#" + "picture" + IDAuction).css("-webkit-filter", "blur(8px)").css("filter", "blur(8px)");
+                        $("#" + "btn" + IDAuction).prop("disabled", true);
+                    }
+                    else if (newState == "Expired") {
+                        $("#" + "btn" + IDAuction).html("expired");
+                        $("#" + "btn" + IDAuction).removeClass("btn-warning btn").addClass("btn-default btn");
+                        $("#" + "state" + IDAuction).css("color", "rgb(255, 54, 40)");
+                        $("#" + "spanLastBidder" + IDAuction).removeClass("glyphicon glyphicon-user").addClass("glyphicon glyphicon-remove");
+                        $("#" + "picture" + IDAuction).css("-webkit-filter", "blur(8px)").css("filter", "blur(8px)");
+                        $("#" + "btn" + IDAuction).prop("disabled", true);
+                        $("#" + "btn" + IDAuction).css("background-color", "rgb(255, 54, 40)");
+                    }
+                }
+                $("#" + "spanPrice" + IDAuction).removeClass("glyphicon glyphicon-arrow-up");
+                $("#" + "spanPrice2" + IDAuction).removeClass("glyphicon glyphicon-arrow-up");
+
+                // Start signalizing if duration is in final 10 seconds of auction 
+                if (lastTenSeconds == "true" && durationEvenOdd == "even") {
+                    if (end == "false") {
+                        $("#" + "time" + IDAuction).css("background-color", "rgb(119, 41, 83)");
+                        $("#" + "time" + IDAuction).css("color", "white");
+                    }
+                } else { // No need to signalize
+                    $("#" + "time" + IDAuction).css("background-color", "transparent");
+                    $("#" + "time" + IDAuction).css("color", "silver");
+                }
+            };
+
+            // Client sends bid to Server
+            $.connection.hub.start().done(function () {
+                $('.btnBid').click(function (event) {
+                    alert("Log in to perform bid!");
+                });
+            });
+
+        });
+
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+
+        // Variables
+        var toolbarVisible = false;
+
+        // Search - Menu toolbar preview
+        $("#showHideBtn").click(function () {
+            $("#menuSearchToolbar").slideToggle("slow", "swing");
+            if (toolbarVisible == true) {
+                toolbarVisible = false;
+                $("#showHideBtn").removeClass("glyphicon glyphicon-chevron-up").addClass("glyphicon glyphicon-chevron-down");
+            } else {
+                toolbarVisible = true;
+                $("#showHideBtn").removeClass("glyphicon glyphicon-chevron-down").addClass("glyphicon glyphicon-chevron-up");
+            }
+        });
+
+    </script>
+}
+

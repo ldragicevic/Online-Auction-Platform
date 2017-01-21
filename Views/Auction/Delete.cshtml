@@ -1,0 +1,90 @@
+﻿@model IEP_Projekat.Models.auction
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this auction?</h3>
+<div>
+    <hr />
+
+    <div style="width: 30%; height: 180px; vertical-align:top; display:inline-block;">
+        @{
+            var base64 = Convert.ToBase64String(Model.picture);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        <img src="@imgSrc" alt="auctionimage" style="width: 180px; height: 180px; display:block" />
+    </div>
+
+    <div style="width: 60%; display:inline-block; vertical-align:top;">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("product", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_name)
+            </dd>
+
+            <dt>
+                @Html.Label("duration", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.duration)
+            </dd>
+
+            <dt>
+                @Html.Label("price", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt>
+                @Html.Label("state", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            <dt>
+                @Html.Label("created", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.create_date_time)
+            </dd>
+
+            <dt>
+                @Html.Label("opened", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.open_date_time)
+            </dd>
+
+            <dt>
+                @Html.Label("closed", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.close_date_time)
+            </dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,147 @@
+﻿@model PagedList.IPagedList<IEP_Projekat.Models.auction>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="blankDivSearchSpan">
+    <span id="showHideBtn" class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+</div>
+
+<!-- SHOW/HIDE MENU -->
+<div id="menuSearchToolbar">
+    <div style="float: left; display: inline-block; text-align: left;">
+        @using (Html.BeginForm("Upcoming", "Registred"))
+        {
+            <input type="text" id="searchName" class="form-control" name="searchName" placeholder="  enter name" /> @Html.Raw("&nbsp;")
+            <span class="glyphicon glyphicon-usd" aria-hidden="true" style="font-size: 10px; color: darkgrey"></span>
+            <input type="number" id="searchMin" class="form-control" name="searchMin" placeholder=" min" /> @Html.Raw("&nbsp;") <font style="color: darkgrey">-</font>@Html.Raw("&nbsp;")
+            <input type="number" id="searchMax" class="form-control" name="searchMax" placeholder=" max" /> @Html.Raw("&nbsp;")
+            <input type="hidden" name="ViewBagHeading" value="@ViewBag.heading" />
+            <button type="submit" class="btn-warning btn" style="width: 60px; height: 22px; padding: 0;">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        }
+    </div>
+    <div style="float: right; display: inline-block; text-align: right; margin-right: 35px;">
+        @Html.ActionLink("live", "Index", "Registred", new { @heading = "live" }, null) |
+        @Html.ActionLink("upcoming", "Upcoming", "Registred", new { @heading = "upcoming" }, null) |
+        @Html.ActionLink("past", "Past", "Registred", new { @heading = "past" }, null) |
+        @Html.ActionLink("profile", "Edit", "AspNetUsers") |
+        @Html.ActionLink("get tokens", "Create", "Order") |
+        @Html.ActionLink("orders", "Index", "Order")
+    </div>
+</div>
+
+<h3 id="pageHeading">@ViewBag.heading</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="well text-center">
+
+                    <!-- PRODUCT NAME  -->
+                    <p class="productNameParagraph">
+                        <a href="@Url.Action("Details", "Auction", new { id = item.IDAuc, heading = ViewBag.heading })" class="productNameLink">
+                            @Html.DisplayFor(model => item.product_name) <br />
+                        </a>
+                    </p>
+
+                    <!-- PRODUCT PRICE  -->
+                    <p class="productPriceParagraph">
+                        @Html.DisplayFor(modelItem => item.price)
+                    </p>
+
+                    <!-- PRODUCT PICTURE  -->
+                    <div class="productImageDiv">
+                        @{
+                            var base64 = Convert.ToBase64String(item.picture);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        <img src="@imgSrc" alt="auctionimage" class="productImage" id="@Html.Raw("picture" + item.IDAuc)" />
+                    </div>
+
+                    <div class="caption">
+
+                        <!-- PRODUCT STATE  -->
+                        <p class="productStateParagraph">
+                            @Html.Label(item.state, new { id = "state" + item.IDAuc, @class = "productStateParagraphUpcoming" })
+                        </p>
+
+                        <!-- PRODUCT DURATION  -->
+                        <p class="bidderIncrementParagraph">
+                            <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 16px;color: silver;"></span>
+                            @{
+                                DateTime end;
+                                if (item.close_date_time != null)
+                                {
+                                    end = (DateTime)item.close_date_time;
+                                }
+                                else
+                                {
+                                    end = DateTime.Now;
+                                }
+                                DateTime now = DateTime.Now;
+                                TimeSpan diff = end.Subtract(now);
+                            }
+                            <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                            <label id="@Html.Raw("time"+item.IDAuc)" class="displayLabelProduct">
+                                @diff.ToString(@"dd\:hh\:mm\:ss")
+                            </label>
+                        </p>
+
+                        <!-- PRODUCT LAST BIDDER  -->
+                        <p class="bidderIncrementParagraph" style="margin-bottom: 3px;">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 16px;color: silver;" id="@Html.Raw("spanLastBidder" + item.IDAuc)"></span>
+                            <label class="displayLabelProduct">@Html.Raw("&nbsp; ")</label>
+                            <label id="@Html.Raw("lastbidder"+item.IDAuc)" class="displayLabelProduct">
+                                @Html.Raw("&nbsp; " + item.lastbidder)
+                            </label>
+                        </p>
+
+                        <!-- PRODUCT PRICE  -->
+                        <p style="font-size: 24px; color: brown; margin: 3px;">
+                            @Html.Label(Convert.ToString(item.price + item.increment), new { id = "price" + item.IDAuc, @class = "incrementPrice" })
+                        </p>
+
+                        <!-- OPEN AUCTION BID AVAILABLE -->
+                        <button class="btn btn-warning btnBid" value="Bid" type="button" disabled="disabled" id="@Html.Raw("btn" + item.IDAuc)" style="background-color: royalblue; border: 0;">
+                            Soon
+                        </button>
+
+                        <input type="hidden" id="@Html.Raw("email" + item.IDAuc)" value="@ViewBag.Email" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, SortType = ViewBag.SortType }))
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            // Variables
+            var toolbarVisible = false;
+
+            $("#showHideBtn").click(function () {
+                $("#menuSearchToolbar").slideToggle("fast");
+                if (toolbarVisible == true) {
+                    toolbarVisible = false;
+                    $("#showHideBtn").removeClass("glyphicon glyphicon-chevron-up").addClass("glyphicon glyphicon-chevron-down");
+                } else {
+                    toolbarVisible = true;
+                    $("#showHideBtn").removeClass("glyphicon glyphicon-chevron-down").addClass("glyphicon glyphicon-chevron-up");
+                }
+            });
+        });
+    </script>
+}
+

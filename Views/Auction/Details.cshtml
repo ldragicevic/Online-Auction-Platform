@@ -1,0 +1,178 @@
+﻿@model IEP_Projekat.Models.auction
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>auction</h4>
+    <hr />
+    
+    <div style="width: 30%; height: 180px; vertical-align:top; display:inline-block;">
+        @{
+            var base64 = Convert.ToBase64String(Model.picture);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        <img src="@imgSrc" alt="auctionimage" style="width: 180px; height: 180px; display:block" />
+    </div>
+
+    <div style="width: 60%; display:inline-block; vertical-align:top;">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("product", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_name)
+            </dd>
+
+            <dt>
+                @Html.Label("duration", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.duration)
+            </dd>
+
+            <dt>
+                @Html.Label("price", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+            <dt>
+                @Html.Label("state", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            <dt>
+                @Html.Label("created", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.create_date_time)
+            </dd>
+
+            <dt>
+                @Html.Label("opened", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.open_date_time)
+            </dd>
+
+            <dt>
+                @Html.Label("closed", new { @class = "control-label col-md-2" })
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.close_date_time)
+            </dd>
+        </dl>
+    </div>
+</div>
+<p>
+    @if (ViewBag.UserRole == "Administrator")
+    {
+        if (Model.state == "Ready")
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.IDAuc }) <font>|</font>
+            @Html.ActionLink("Open", "Open", new { id = Model.IDAuc }) <font>|</font>
+            @Html.ActionLink("Delete", "Delete", new { id = Model.IDAuc }) <font>|</font>
+        }
+        @Html.ActionLink("Back to List", "Index")
+        ViewBag.UserRole = "Administrator";
+    }
+    else if (ViewBag.UserRole == "Registrovan")
+    {
+        ViewBag.UserRole = "Registrovan";
+        @Html.ActionLink("Back", "Index", "Registred", new { heading = ViewBag.heading }, null)
+    }
+    else
+    {
+        ViewBag.UserRole = "Gost";
+        @Html.ActionLink("Back", "Index", "Home", new { heading = ViewBag.heading }, null)
+    }
+</p>
+
+<h2>last bidders</h2>
+<table class="table-info" style="width: 500px;">
+    <thead>
+        <th>bidder</th>
+        <th>price</th>
+        <th>time</th>
+        <th>state</th>
+    </thead>
+    @for (int i = 0; i < 10; i++)
+    {
+        if (i < ViewBag.count) // Bidder exists
+        {
+            <tr>
+                <td id="@Html.Raw("bidder" + i)">@ViewBag.bidders[i]</td>
+                <td id="@Html.Raw("price" + i)">@ViewBag.prices[i]</td>
+                <td id="@Html.Raw("time" + i)">@ViewBag.times[i]</td>
+                <td id="@Html.Raw("state" + i)">@ViewBag.states[i]</td>
+            </tr>
+        }
+        else // No bidder - fill with blank
+        {
+            <tr>
+                <td id="@Html.Raw("bidder" + i)">&nbsp;</td>
+                <td id="@Html.Raw("price" + i)">&nbsp;</td>
+                <td id="@Html.Raw("time" + i)">&nbsp;</td>
+                <td id="@Html.Raw("state" + i)">&nbsp;</td>
+            </tr>
+        }
+    }
+
+</table>
+
+<input type="hidden" id="IDAuction" value="@ViewBag.IDAuction" />
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>        
+        $(function () {
+
+            var my_hub = $.connection.myHub;
+
+            my_hub.client.auctionDetailsUpdate = function (IDAuction, newBidder, newPrice, newTime, newState) {
+                var x = document.getElementById("IDAuction").value;
+                if (x == IDAuction) {
+                    moveRowsDown();
+                    document.getElementById("time0").innerHTML = newTime;
+                    document.getElementById("price0").innerHTML = newPrice;
+                    document.getElementById("bidder0").innerHTML = newBidder;
+                    document.getElementById("state0").innerHTML = newState;
+                }
+            };
+
+            // Client register on MyHub
+            $.connection.hub.start().done(function () { $(document).ready(function () { }); });
+
+            my_hub.client.timerUpdate = function (IDAuction, newState, newDuration, newLastBidder, newPrice) { }
+            my_hub.client.setTokenNumber = function (clientSelector, tokenNumber, clientAlertSelector, clientWarningSelector, auctionNameWarning) { }
+            my_hub.client.clientBidsUpdate = function (IDAuction, newState, newDuration, newLastBidder, newPrice, warningNoTokens) { }
+
+        });
+
+        function moveRowsDown() {
+            for (var i = 9; i > 0; i--) {
+                document.getElementById("time" + i).innerHTML = document.getElementById("time" + (i - 1)).innerHTML;
+                document.getElementById("price" + i).innerHTML = document.getElementById("price" + (i - 1)).innerHTML;
+                document.getElementById("bidder" + i).innerHTML = document.getElementById("bidder" + (i - 1)).innerHTML;
+                document.getElementById("state" + i).innerHTML = document.getElementById("state" + (i - 1)).innerHTML;
+            }
+        }
+
+    </script>
+}

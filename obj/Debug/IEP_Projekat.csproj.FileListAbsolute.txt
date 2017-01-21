@@ -1,0 +1,153 @@
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\csc.exe
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\vbc.exe
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\VBCSCompiler.exe
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\IEP_Projekat.dll.config
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\IEP_Projekat.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\IEP_Projekat.pdb
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Antlr3.Runtime.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\EntityFramework.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\EntityFramework.SqlServer.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Newtonsoft.Json.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Owin.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Helpers.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Mvc.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Optimization.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Razor.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Deployment.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Razor.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\WebGrease.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Helpers.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Mvc.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Optimization.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.Razor.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Deployment.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Razor.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Antlr3.Runtime.pdb
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Newtonsoft.Json.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\EntityFramework.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\EntityFramework.SqlServer.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\obj\Debug\IEP_Projekat.dll
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\obj\Debug\IEP_Projekat.pdb
+C:\Users\korisnik\Desktop\IEP PROJEKAT\IEP_Projekat\IEP_Projekat\obj\Debug\IEP_Projekat.csprojResolveAssemblyReference.cache
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\csc.exe
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\vbc.exe
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\VBCSCompiler.exe
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\IEP_Projekat.dll.config
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\IEP_Projekat.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\IEP_Projekat.pdb
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Antlr3.Runtime.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\EntityFramework.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\EntityFramework.SqlServer.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Newtonsoft.Json.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Owin.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Helpers.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Mvc.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Optimization.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Razor.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Deployment.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Razor.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\WebGrease.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Helpers.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Mvc.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Optimization.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.Razor.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Deployment.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\System.Web.WebPages.Razor.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Antlr3.Runtime.pdb
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Newtonsoft.Json.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\EntityFramework.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\EntityFramework.SqlServer.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\obj\Debug\IEP_Projekat.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\obj\Debug\IEP_Projekat.pdb
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\PagedList.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\PagedList.Mvc.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\PagedList.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\PagedList.Mvc.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\FluentScheduler.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\FluentScheduler.pdb
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\FluentScheduler.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\Microsoft.AspNet.SignalR.Client.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\log4net.dll
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\bin\log4net.xml
+C:\Users\korisnik\Desktop\iep projekat backup\IEP_Projekat\IEP_Projekat\obj\Debug\IEP_Projekat.csprojResolveAssemblyReference.cache
